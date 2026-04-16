@@ -1,11 +1,13 @@
-
-
-
-import pandas as pd, numpy as np, os, json, re,  matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import os
+import json
+import re
+import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-jsonData=[]
+jsonData = []
 with open('modcloth_final_data.json') as f:
     for line in f.readlines():
         jsonData.append(json.loads(line))
@@ -14,7 +16,7 @@ modcloth_data = pd.DataFrame(jsonData)
 
 def height_converter(x):
     '''converts heights'''
-    if pd.isna(x): 
+    if pd.isna(x):
         return x
     else:
         split_x=x.split('ft'); height_in_inches_converted_from_string=int(split_x[0])*12
